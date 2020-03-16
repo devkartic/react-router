@@ -4,7 +4,7 @@ const Contact = (props) => {
     // console.log(props);
     setTimeout(()=>{
        props.history.push('/about');
-    }, 2000);
+    }, 5000);
     return(
         <div className="card">
             <div className="card-header">
