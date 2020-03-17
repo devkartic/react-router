@@ -4,10 +4,6 @@ import {Link, NavLink, withRouter} from "react-router-dom";
 // here with router is hoc (higher order component)
 
 const Navbar =  (props) => {
-    // console.log(props);
-    setTimeout(()=>{
-        props.history.push('/about')
-    }, 5000)
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse"
