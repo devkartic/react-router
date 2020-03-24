@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Rainbow from "./hoc/Rainbow";
-import axios from 'axios'
 import {Link} from "react-router-dom";
 import Pokeball from './../images/pokeball.png'
 import { connect } from 'react-redux'
@@ -9,16 +8,6 @@ class Home extends Component{
     state = {
         posts : this.props.posts
     }
-
-/*    componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response=>{
-                // console.log(response.data);
-                this.setState({
-                    posts : response.data.splice(0, 10)
-                })
-            });
-    }*/
 
     render() {
         // console.log(this.state.posts);
@@ -69,4 +58,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps) (Home);
+export default connect(mapStateToProps) (Rainbow(Home));

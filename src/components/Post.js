@@ -1,26 +1,15 @@
 import React, {Component} from "react";
-import axios from "axios";
-import {Link} from "react-router-dom";
+import { connect } from 'react-redux'
+
 
 class Post extends Component{
 
     state = {
-        post : null
-    }
-
-    componentDidMount() {
-        // console.log(this.props);
-        let id = this.props.match.params.post_id
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then(response=>{
-                console.log(response.data);
-                this.setState({
-                    post : response.data
-                })
-            });
+        post : this.props.post
     }
 
     render() {
+        // console.log(this.props.post);
 
         let postDetails = this.state.post ? (
             <div className="card mb-3">
@@ -48,4 +37,11 @@ class Post extends Component{
     }
 }
 
-export default Post;
+const mapStateToProps = (state, ownProps) => {
+    let id = ownProps.match.params.post_id;
+    return {
+        post : state.posts.find(post => post.id == id)
+    }
+}
+
+export default connect(mapStateToProps) (Post);
